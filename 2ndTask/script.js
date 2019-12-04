@@ -27,10 +27,10 @@ appData.moneyPerDay = appData.budget / 30;
 alert('Бюджет пользователя на день составляет: ' + appData.moneyPerDay);
 
 if(appData.moneyPerDay <= 30) {
-    console.log('Достаток пользователя низкий')
+    console.log('Достаток пользователя низкий');
 } else if(appData.moneyPerDay >= 30 && appData.moneyPerDay <= 150) {
-    console.log('Достаток пользователя средний')
+    console.log('Достаток пользователя средний');
 } else {
-    console.log('Пользователя живёт в достатке')
+    console.log('Пользователя живёт в достатке');
 }
-console.log(appData)
+console.log(appData);
