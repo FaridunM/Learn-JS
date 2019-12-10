@@ -71,21 +71,3 @@ let firstAnswer,
             }
         }
     };
-
-
-let person = {
-    name: 'Faridun',
-    secondName: 'Marufi',
-    age: 150,
-    want: 'jeday in JS'
-};
-
-// 1-ый способ
-for (let j in person) {
-    console.log(j, '-', person[j] + ',');
-}
-
-// 2-ой
-Object.keys(person).forEach(function(key) {
-    console.log(key, ':', this[key]);
-  }, person);
