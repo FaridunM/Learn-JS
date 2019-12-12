@@ -43,7 +43,6 @@ startBtn.addEventListener('click', function() {
     optionalExpensesBtn.removeAttribute('disabled');
     optionalExpensesBtn.className = 'optionalexpenses-btn';
     optionalExpensesBtn.textContent = 'Утвердить';
-    console.log('Дизактивировано');
 });
 
 expensesBtn.addEventListener('click', function() {
