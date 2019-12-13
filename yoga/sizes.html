@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn clientWidth, clientHeight, offsetWidth, offsetHeight, scrollHeight</title>
+</head>
+<body>
+    <style>
+        .box {
+        width: 400px;
+        height: 350px;
+        overflow: scroll;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 10px;
+        
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 7px 30px;
+        }
+    </style>
+    <div class="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias quibusdam sunt doloremque natus iusto cum dolor error corporis minima officia. 
+        Quibusdam, molestiae consequuntur! Consequuntur explicabo quis libero quam accusantium modi, omnis cum quia qui quae nulla asperiores totam eum magnam 
+        vel earum enim non facilis voluptatum! Necessitatibus quis repudiandae voluptas vero ipsa optio, non dolore maxime vel distinctio, iusto sunt esse 
+        possimus neque! Ullam odio id natus ad est cum impedit adipisci eveniet possimus. Provident quod architecto ea iste eveniet vel sunt, praesentium 
+        assumenda perferendis commodi corporis, asperiores blanditiis. Non laborum eos eligendi tempora repellat voluptatem quasi accusamus impedit distinctio 
+        odio, perferendis doloribus? Laboriosam animi hic corrupti? Accusantium minus enim accusamus repellat, architecto reiciendis temporibus, odit ipsam id 
+        dolor non? Atque blanditiis ullam voluptate accusantium maiores quo tempora! Ratione assumenda non quibusdam molestias, rem recusandae, voluptatibus 
+        iure veritatis culpa placeat cupiditate est fugiat ipsum aspernatur animi! Dolore nihil magni ratione molestias, perspiciatis nisi deserunt repellendus 
+        eaque pariatur tenetur soluta debitis et beatae cum qui. Ex quisquam accusamus, possimus officiis beatae minima voluptatum eius vero, accusantium minus 
+        esse pariatur in autem temporibus ea officia voluptate ut aut debitis. Dolor, eaque ratione, assumenda, modi id facilis illo consectetur reiciendis quia 
+        ut iste laudantium repellat debitis. Ratione, dolore alias nulla eos vero consequatur explicabo earum laudantium iste numquam nihil voluptatibus eligendi 
+        eveniet ex, a cupiditate molestiae reiciendis minima ipsa quis aliquam similique? Qui sapiente quo odio perferendis neque consequatur asperiores? Odit 
+        eaque voluptatem maxime repellendus iusto assumenda corporis quis sapiente quos repudiandae culpa, qui dolore iure similique ratione aliquam accusamus 
+        velit numquam perspiciatis quaerat possimus est natus omnis provident. Aspernatur repellendus blanditiis saepe asperiores dicta expedita aut ut omnis nulla 
+        deleniti sunt hic, officiis laudantium eius, unde accusantium. Similique aperiam nemo doloremque laboriosam dolorum? Odit voluptates architecto praesentium! 
+        Quidem aperiam dolor suscipit vel.
+    </div>
+    <button class="btn">Click</button>
+
+    <script>
+        let box = document.querySelector('.box');
+
+        // есть такие параметры элемента как: client, offset, scroll
+        let width = box.scrollWidth,
+            height = box.scrollHeight;
+
+        console.log(width, height); 
+        console.log(box.getBoundingClientRect()); // получаем левый, правый, верхний и нижнии расстоянии до границ страницы, некоторые браузеры ещё предоставляют ширину, высоту и точки x и y, такие как chrome и mozila
+
+        // Получаем ширину документа, сайта.
+        console.log(document.documentElement.clientWidth);
+        console.log(document.documentElement.clientHeight);
+
+        // Эта штука - scrollTop показывает то сколько юзер прокрутил scroll вниз с начала страницы
+        console.log(document.documentElement.scrollTop);
+        document.documentElement.scrollTop = 1000;      // перемещает юзера на 1000px вниз с начала стр.
+        scrollBy(0, 200);       // Перемещает юзера на 200px вниз с его текущей позиции (по умолчанию взят 0). Возможно при динамическом изменении оно себя покажет с лучшей стороны, но если вручную делать то не ахти.
+        scrollTo(0, 200);       // Чаще используемый способ. Этот способ перемещает юзера в определённые координаты на стр. В данном случае на 200px с начало стр.
+    </script>
+</body>
+</html>
