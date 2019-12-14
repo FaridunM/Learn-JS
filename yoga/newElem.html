@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How to create new element on document by class</title>
+</head>
+<body>
+    
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            'use strict';
+
+            class Option {
+                constructor() {
+                    this.height = '40px';
+                    this.width = '180px';
+                    this.background = 'greenyellow';
+                    this.textAlight = 'center';
+                    this.font = '16px bolder Tahoma';
+                    this.border = '2px solid grey';
+                    this.borderRadius = '10px';
+                }
+
+                createNewElement() {
+                    let div = document.createElement('div');
+                    div.textContent = 'Ничёсе работает';
+                    div.style.cssText = `
+                        height: ${this.height};
+                        width: ${this.width};
+                        background: ${this.background};
+                        text-align: ${this.textAlight};
+                        font: ${this.font};
+                        border: ${this.border};
+                        border-radius: ${this.borderRadius};
+                        `;
+                    document.body.appendChild(div);
+                }
+            }
+
+            let element = new Option();
+            element.createNewElement();
+        });    
+    </script>
+</body>
+</html>
