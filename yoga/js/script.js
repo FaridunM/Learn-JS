@@ -219,6 +219,48 @@ window.addEventListener('DOMContentLoaded', function() {
             }           
         }            
     });
+
+    // calc
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDates = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        totalValue = document.getElementById('total'),
+        personsSum = 0,
+        datesSum = 0,
+        totalSum = 0;        
+
+        totalValue.textContent = 0;
+
+    persons.addEventListener('input', function() {
+        personsSum = +this.value;
+        totalSum = (datesSum + personsSum) * 4000;
+
+        if (restDates.value == '' || personsSum == 0) {
+            totalValue.textContent = 0;
+        } else {
+            totalValue.textContent = totalSum * place.options[place.selectedIndex].value;
+        }
+    });
+
+    restDates.addEventListener('input', function() {
+        datesSum = +this.value;        
+        totalSum = (datesSum + personsSum) * 4000;
+
+        if (persons.value == '' || datesSum == 0) {
+            totalValue.textContent = 0;
+        } else {
+            totalValue.textContent = totalSum * place.options[place.selectedIndex].value;
+        }
+    });
+
+    place.addEventListener('change', function() {
+        if (restDates.value == '' || persons.value == '') {
+            totalValue.textContent = 0;
+        } else {
+            totalValue.textContent = totalSum * this.options[this.selectedIndex].value;
+        }
+    });
 });
 
 
